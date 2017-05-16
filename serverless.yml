@@ -1,4 +1,4 @@
-service: serverless-webpack-multiple-entries-example
+service: circle-ci-redirect
 
 # Add the serverless-webpack plugin
 plugins:
@@ -17,5 +17,6 @@ functions:
     events:
       - http:
           method: GET
-          path: first
-          integration: lambda
+          path: artifact/{vcs}/{username}/{project}/{whichBuild}/artifacts
+          cors: true
+          integration: lambda-proxy
