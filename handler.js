@@ -34,7 +34,7 @@ module.exports.hello = function (event, context, cb) {
             const returnedResponse = {
                 statusCode: 302,
                 headers: {
-                    "Location": packageObject.url
+                    "Location": packageObject.url + "?circle-token=" + event.queryStringParameters['circle-token']
                 },
                 body: ""
             };
